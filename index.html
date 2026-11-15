@@ -158,6 +158,7 @@ section{scroll-margin-top:118px}
 .phone{font-family:var(--font-display);font-size:1.1em;user-select:all}
 .top{position:fixed;right:max(16px,env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:25;width:44px;height:44px;border-radius:50%;border:1px solid var(--brand);background:var(--brand);color:var(--on-brand);font-size:1.1rem;cursor:pointer}
 .updated{font-size:.85em;color:var(--muted);margin-top:14px}
+.eta{list-style:none;margin:8px 0;padding:0;display:grid;gap:4px;font-size:.94em}.eta li{display:flex;gap:10px;align-items:baseline}.eta b{min-width:5.5em;color:var(--brand)}
 </style>
 
 </head>
@@ -292,7 +293,9 @@ section{scroll-margin-top:118px}
 
   <section id="day2" hidden>
     <h2>D2　12/27（日）退房日</h2>
-    <p class="sub">住 1 晚，退房後回板橋。週日傍晚回程車多，建議 14:30 前離開清境。</p>
+    <p class="sub">住 1 晚，退房後回板橋。週日傍晚回程車多，建議 14:30 離開莊園，先到超商補給，約 14:50 下山。</p>
+    <div class="opt" style="margin-bottom:18px"><h3>預估到家 約 19:00<span class="tag t-est">估計</span></h3>
+      <p>順暢 18:20，一般週日 19:00，塞車 19:40 以後。以 14:50 從清境出發估算，細節在下方「下山回板橋」。</p></div>
     <h3 class="ovh">今日一覽</h3>
     <ol class="ov">
       <li><a href="#d1"><span class="t">約 07:30</span><span class="n">早餐<span class="tag t-tbc">待確認</span></span></a></li>
@@ -301,7 +304,8 @@ section{scroll-margin-top:118px}
       <li class="hl"><a href="#d4"><span class="t">09:30</span><span class="n">青青草原綿羊秀<span class="tag t-off">官網</span></span></a></li>
       <li><a href="#d5"><span class="t">約 10:15</span><span class="n">回莊園整理、退房<span class="tag t-off">官網</span></span></a></li>
       <li><a href="#d6"><span class="t">中午</span><span class="n">午餐或下午茶<span class="tag t-tbc">待確認</span></span></a></li>
-      <li><a href="#d7"><span class="t">14:30 前</span><span class="n">下山回程<span class="tag t-est">估計</span></span></a></li>
+      <li><a href="#d7"><span class="t">約 14:30</span><span class="n">清境超商補給<span class="tag t-tbc">待確認</span></span></a></li>
+      <li class="hl"><a href="#d8"><span class="t">約 14:50</span><span class="n">下山回板橋，約 19:00 到家<span class="tag t-est">估計</span></span></a></li>
     </ol>
     <h3 class="tlh">詳細時間軸</h3>
     <ol class="tl">
@@ -337,9 +341,22 @@ section{scroll-margin-top:118px}
           <p>莊園餐廳的下午茶時段約 11:30 到 16:00，假日是自助式。非住客在餐廳區可以拍照，退房後也能留下來喝茶，是否需要預約請先問櫃台。想吃正餐，可以試農場內的擺夷料理，或下山到埔里吃。</p></div>
       </li>
       <li id="d7">
-        <div class="time">14:30 前</div>
-        <div class="card"><h3>下山回程<span class="tag t-est">估計</span></h3>
-          <p>接國道 6 轉國道 3 回板橋約 3 小時多。週日傍晚是回程尖峰，14:30 前出發比較不會塞到晚上。</p></div>
+        <div class="time">約 14:30</div>
+        <div class="card"><h3>清境超商補給<span class="tag t-tbc">待確認</span></h3>
+          <p>下山前先到清境的 7-ELEVEN 補給，位置在清境農場一帶、小瑞士商場附近，沒查到確切地址，用地圖搜尋「7-ELEVEN 清境門市」，導航設成停靠點。較新的報導說清境的 7-ELEVEN 已取消 24 小時營業，14:30 左右一般仍會營業，營業時間以門市為準。</p>
+          <p>可以買：水和提神的咖啡、路上吃的點心、先上一次廁所。想一次買齊不用趕，停 15 到 20 分鐘。下山後在埔里也有更多超商和加油站，油量不夠就在埔里加。</p>
+          <div class="links"><a href="https://www.google.com/maps/search/?api=1&query=7-ELEVEN%20%E6%B8%85%E5%A2%83%E9%96%80%E5%B8%82" target="_blank" rel="noopener">在地圖搜尋 7-ELEVEN 清境門市</a></div></div>
+      </li>
+      <li class="hl" id="d8">
+        <div class="time">約 14:50</div>
+        <div class="card"><h3>下山回板橋<span class="tag t-est">估計</span></h3>
+          <p>走台 14 甲下山到埔里，接國道 6 轉國道 3 回板橋。預估到家時間，以 14:50 從超商出發、中途休息一次約 15 分鐘估算：</p>
+          <ul class="eta">
+            <li><b>車流順暢</b>約 18:20 到家</li>
+            <li><b>一般週日</b>約 19:00 到家</li>
+            <li><b>回程塞車</b>約 19:40 以後</li>
+          </ul>
+          <p>這是我依一般路況的經驗估計，沒有查到實際數據。週日下午國道 3 北上常越晚越塞，想早點到家就把超商停留縮短。出發前看高速公路局即時路況。</p></div>
       </li>
     </ol>
     <h3 class="tlh" style="margin-top:8px">備案</h3>
