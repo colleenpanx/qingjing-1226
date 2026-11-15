@@ -128,8 +128,14 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .navbar{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);border-bottom:1px solid var(--line);scrollbar-width:none;margin-inline:calc(-1 * max(16px,env(safe-area-inset-left,0px)));padding-inline:max(16px,env(safe-area-inset-left,0px))}
 .navbar::-webkit-scrollbar{display:none}
 .nav a[aria-current="true"]{background:var(--brand);color:var(--on-brand);border-color:var(--brand)}
-section{scroll-margin-top:64px}
-.tl li{scroll-margin-top:72px}
+[hidden]{display:none!important}
+section{scroll-margin-top:118px}
+.tl li{scroll-margin-top:126px}
+.navbar .nav{scrollbar-width:none;padding-block:12px 8px}
+.navbar .nav::-webkit-scrollbar{display:none}
+.seg{display:flex;gap:6px;padding-bottom:10px}
+.seg button{flex:1;font:inherit;font-size:.92em;font-weight:700;color:var(--brand);background:var(--surface);border:1px solid var(--brand);border-radius:8px;padding:8px 6px;cursor:pointer}
+.seg button[aria-selected="true"]{background:var(--brand);color:var(--on-brand)}
 .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
 .chips span{font-size:.82em;padding:4px 12px;border-radius:999px;background:var(--surface);border:1px solid var(--line);color:var(--muted)}
 .ovh{font-family:var(--font-display);font-size:1.15em;margin:0 0 10px}
@@ -161,7 +167,7 @@ section{scroll-margin-top:64px}
   <div class="wrap">
     <div class="eyebrow">南投仁愛 · 清境 · 2026/12/26（六）</div>
     <h1>入住老英格蘭莊園<br>抵達日行程</h1>
-    <p class="lede">板橋出發的兩人約會小旅行。12/26 中午在清境上高地吃燒肉，下午逛小瑞士花園和青青草原，傍晚入住莊園。後面附上住客與旅遊創作者的 YouTube 影片，以及 12/27 退房日的建議安排。</p>
+    <p class="lede">板橋出發的兩人約會小旅行。12/26 先到小瑞士花園散步，13:30 在清境上高地吃燒肉，下午逛青青草原，傍晚入住莊園。後面附上住客與旅遊創作者的 YouTube 影片，以及 12/27 退房日的建議安排。</p>
     <div class="chips"><span>12/26（六）入住</span><span>12/27（日）退房</span><span>1 晚 · 2 人</span><span>板橋出發</span></div>
     <svg class="ridges" viewBox="0 0 860 120" preserveAspectRatio="none" aria-hidden="true">
       <path d="M0 78 L70 52 L130 66 L215 28 L290 58 L360 40 L450 72 L540 34 L620 60 L710 30 L790 56 L860 44 L860 120 L0 120Z" fill="var(--ridge1)"/>
@@ -172,21 +178,27 @@ section{scroll-margin-top:64px}
 </header>
 
 <main class="wrap">
-  <nav class="nav navbar" id="nav" aria-label="頁內導覽">
+  <div class="navbar">
+  <nav class="nav" id="nav" aria-label="頁內導覽">
     <a href="#glance">重點</a>
-    <a href="#day1">12/26 時間軸</a>
+    <a href="#day1">D1 時間軸</a>
+    <a href="#day2">D2 時間軸</a>
     <a href="#room">房內放鬆</a>
     <a href="#videos">影片</a>
-    <a href="#day2">12/27 退房日</a>
     <a href="#prep">穿著與確認</a>
     <a href="#sources">資料來源</a>
   </nav>
+  <div class="seg" id="seg" role="tablist" aria-label="切換行程日">
+    <button type="button" role="tab" data-day="day1" aria-selected="true">D1　12/26（六）抵達</button>
+    <button type="button" role="tab" data-day="day2" aria-selected="false">D2　12/27（日）退房</button>
+  </div>
+  </div>
 
   <section id="glance">
     <h2>當天重點</h2>
     <p class="sub">12/26 是週六，上山的路和景點都會有人潮，早點出發比較從容。</p>
     <div class="glance">
-      <div class="fact"><b>午餐</b><span>上高地精品燒肉</span><small>已訂位。位置在清境小瑞士花園對面一帶。</small></div>
+      <div class="fact"><b>午餐（已訂）</b><span>13:30 上高地</span><small>上高地精品燒肉，位置在清境小瑞士花園對面一帶。</small></div>
       <div class="fact"><b>住宿（已訂）</b><span>15:30 起入住</span><small>莊園官網：下午 3:30 後入住，隔天 11:00 前退房。</small></div>
       <div class="fact"><b>農場開放</b><span>08:00–17:00</span><small>清境農場官方介紹的開放時間，下午要抓好離場時間。</small></div>
       <div class="fact"><b>晚餐服裝</b><span>Smart Casual</span><small>莊園官網建議。帶一套稍微正式的衣服，山上冷，外面搭得上外套。</small></div>
@@ -195,15 +207,15 @@ section{scroll-margin-top:64px}
   </section>
 
   <section id="day1">
-    <h2>12/26 抵達日時間軸</h2>
+    <h2>D1　12/26（六）抵達日</h2>
     <p class="sub">出發地是板橋，上午的時間是估計值，中午之後以你的訂位為準。</p>
     <h3 class="ovh">今日一覽</h3>
     <ol class="ov">
-      <li><a href="#t1"><span class="t">約 07:00</span><span class="n">從板橋出發<span class="tag t-est">估計</span></span></a></li>
-      <li><a href="#t2"><span class="t">約 10:00</span><span class="n">埔里休息、補給<span class="tag t-plan">建議</span></span></a></li>
-      <li class="hl"><a href="#t3"><span class="t">11:30–13:30</span><span class="n">午餐｜上高地精品燒肉<span class="tag t-booked">已訂</span></span></a></li>
-      <li><a href="#t4"><span class="t">約 13:30</span><span class="n">小瑞士花園散步<span class="tag t-plan">建議</span></span></a></li>
-      <li><a href="#t5"><span class="t">約 14:30</span><span class="n">青青草原綿羊秀<span class="tag t-off">官網</span></span></a></li>
+      <li><a href="#t1"><span class="t">約 08:00</span><span class="n">從板橋出發<span class="tag t-est">估計</span></span></a></li>
+      <li><a href="#t2"><span class="t">約 11:15</span><span class="n">埔里休息、補給<span class="tag t-plan">建議</span></span></a></li>
+      <li><a href="#t3"><span class="t">約 12:30</span><span class="n">上山，抵達清境<span class="tag t-est">估計</span></span></a></li>
+      <li><a href="#t4"><span class="t">約 12:45</span><span class="n">小瑞士花園散步<span class="tag t-plan">建議</span></span></a></li>
+      <li class="hl"><a href="#t5"><span class="t">13:30–15:00</span><span class="n">午餐｜上高地精品燒肉<span class="tag t-booked">已訂</span></span></a></li>
       <li><a href="#t6"><span class="t">約 15:15</span><span class="n">草原與高空景觀步道<span class="tag t-plan">建議</span></span></a></li>
       <li class="hl"><a href="#t7"><span class="t">約 16:30</span><span class="n">入住老英格蘭莊園<span class="tag t-booked">已訂</span></span></a></li>
       <li><a href="#t8"><span class="t">約 17:10</span><span class="n">日落前在莊園拍照<span class="tag t-est">估計</span></span></a></li>
@@ -223,36 +235,36 @@ section{scroll-margin-top:64px}
     </details>
     <ol class="tl">
       <li id="t1">
-        <div class="time">約 07:00</div>
+        <div class="time">約 08:00</div>
         <div class="card"><h3>從板橋出發<span class="tag t-est">估計</span></h3>
-          <p>走國道 3 轉國道 6 到埔里，順利約 3 小時多。週六假期車多，建議不要晚於 07:30。兩人輪流開的話，到埔里換手。</p></div>
+          <p>走國道 3 轉國道 6 到埔里，順利約 3 小時多。午餐訂在 13:30，上午不趕，08:00 出發就夠；週六車多的話提早半小時。兩人輪流開的話，到埔里換手。</p></div>
       </li>
       <li id="t2">
-        <div class="time">約 10:00</div>
+        <div class="time">約 11:15</div>
         <div class="card"><h3>埔里休息、補給<span class="tag t-plan">建議</span></h3>
-          <p>上山前先上廁所、買水。後半段是彎多的山路，容易暈車的人先吃暈車藥。</p></div>
+          <p>上山前先上廁所、買水，也可以買點小點心墊肚子，13:30 才吃午餐。後半段是彎多的山路，容易暈車的人先吃暈車藥。</p></div>
       </li>
-      <li class="hl" id="t3">
-        <div class="time">約 11:30<br>–13:30</div>
-        <div class="card lunch"><h3>午餐｜上高地精品燒肉<span class="tag t-booked">已訂</span></h3>
-          <p>用餐時間以你的訂位為準。開車從清境小瑞士對面的光榮巷進去，沿指示牌走，店家有免費停車場。我沒查到可靠的地址和電話，出發前在 Google 地圖搜尋「上高地精品燒肉」確認。</p></div>
+      <li id="t3">
+        <div class="time">約 12:30</div>
+        <div class="card"><h3>上山，抵達清境<span class="tag t-est">估計</span></h3>
+          <p>從埔里上山約 40 到 60 分鐘，週六可能更久。目標 13:15 前到上高地，留 15 分鐘停車和走進去的時間。</p></div>
       </li>
       <li id="t4">
-        <div class="time">約 13:30</div>
+        <div class="time">約 12:45</div>
         <div class="card"><h3>小瑞士花園散步<span class="tag t-plan">建議</span></h3>
-          <p>離午餐地點很近，吃飽後慢走消食，不用再開車移動。</p>
+          <p>上高地在小瑞士花園對面一帶，午餐前先逛一圈，不用再開車移動。時間緊的話縮短成 20 分鐘，別走太累。</p>
           <div class="links"><a href="#videos">看小瑞士花園影片</a></div></div>
       </li>
-      <li id="t5">
-        <div class="time">約 14:30</div>
-        <div class="card"><h3>青青草原綿羊秀<span class="tag t-off">官網</span></h3>
-          <p>官網公告例假日表演是 09:30 和 14:30，每場約 30 分鐘。12/26 是週六，下午場 14:30 會演；連假和寒暑假的時間同例假日，寒暑假週三公休。遇天候惡劣，現場會公告停演，請提早 10 到 15 分鐘到場卡位。</p>
-          <div class="links"><a href="#videos">看青青草原影片</a></div></div>
+      <li class="hl" id="t5">
+        <div class="time">13:30<br>–15:00</div>
+        <div class="card lunch"><h3>午餐｜上高地精品燒肉<span class="tag t-booked">已訂</span></h3>
+          <p>你訂的是 13:30，用餐約 90 分鐘，吃完大約 15:00。開車從清境小瑞士對面的光榮巷進去，沿指示牌走，店家有免費停車場。要遲到的話提早打電話。我沒查到可靠的地址和電話，出發前在 Google 地圖搜尋「上高地精品燒肉」確認。</p></div>
       </li>
       <li id="t6">
         <div class="time">約 15:15<br>–16:15</div>
         <div class="card"><h3>草原與高空景觀步道<span class="tag t-plan">建議</span></h3>
-          <p>冬天的清境偏安靜，適合慢慢走、看山和雲。午後容易起霧、風也大，外套帽子備好。農場 17:00 關，最晚 16:30 前離開。</p></div>
+          <p>午餐後往青青草原走。綿羊秀下午場是 14:30，跟午餐時間重疊，改排 12/27 上午 09:30 場。冬天的清境偏安靜，適合慢慢走、看山和雲，午後容易起霧、風也大，外套帽子備好。農場 17:00 關，最晚 16:30 前離開。</p>
+          <div class="links"><a href="#videos">看青青草原影片</a></div></div>
       </li>
       <li class="hl" id="t7">
         <div class="time">約 16:30</div>
@@ -277,6 +289,68 @@ section{scroll-margin-top:64px}
       </li>
     </ol>
   </section>
+
+  <section id="day2" hidden>
+    <h2>D2　12/27（日）退房日</h2>
+    <p class="sub">住 1 晚，退房後回板橋。週日傍晚回程車多，建議 14:30 前離開清境。</p>
+    <h3 class="ovh">今日一覽</h3>
+    <ol class="ov">
+      <li><a href="#d1"><span class="t">約 07:30</span><span class="n">早餐<span class="tag t-tbc">待確認</span></span></a></li>
+      <li><a href="#d2"><span class="t">約 08:30</span><span class="n">莊園花園散步<span class="tag t-plan">建議</span></span></a></li>
+      <li><a href="#d3"><span class="t">約 09:00</span><span class="n">前往清境農場<span class="tag t-est">估計</span></span></a></li>
+      <li class="hl"><a href="#d4"><span class="t">09:30</span><span class="n">青青草原綿羊秀<span class="tag t-off">官網</span></span></a></li>
+      <li><a href="#d5"><span class="t">約 10:15</span><span class="n">回莊園整理、退房<span class="tag t-off">官網</span></span></a></li>
+      <li><a href="#d6"><span class="t">中午</span><span class="n">午餐或下午茶<span class="tag t-tbc">待確認</span></span></a></li>
+      <li><a href="#d7"><span class="t">14:30 前</span><span class="n">下山回程<span class="tag t-est">估計</span></span></a></li>
+    </ol>
+    <h3 class="tlh">詳細時間軸</h3>
+    <ol class="tl">
+      <li id="d1">
+        <div class="time">約 07:30</div>
+        <div class="card"><h3>早餐<span class="tag t-tbc">待確認</span></h3>
+          <p>官網寫早餐依專案人數提供，實際依你訂的方案。近一年的住客評論寫早餐是 buffet、很豐盛。用餐時間官網沒寫，入住時問櫃台。</p></div>
+      </li>
+      <li id="d2">
+        <div class="time">約 08:30</div>
+        <div class="card"><h3>莊園花園散步<span class="tag t-plan">建議</span></h3>
+          <p>天亮後兩人在莊園私人花園散步，補拍昨天沒拍到的角度。</p></div>
+      </li>
+      <li id="d3">
+        <div class="time">約 09:00</div>
+        <div class="card"><h3>前往清境農場<span class="tag t-est">估計</span></h3>
+          <p>從莊園到農場約 10 分鐘車程。綿羊秀 09:30 開演，要提早 10 到 15 分鐘到場卡位，所以 09:00 前出發。</p></div>
+      </li>
+      <li class="hl" id="d4">
+        <div class="time">09:30</div>
+        <div class="card"><h3>青青草原綿羊秀<span class="tag t-off">官網</span></h3>
+          <p>官網公告例假日表演是 09:30 和 14:30，每場約 30 分鐘。12/27 是週日，上午場會演。遇天候惡劣，現場會公告停演。12/26 午餐 13:30，趕不上 14:30 的下午場，所以安排在這裡。</p>
+          <div class="links"><a href="#videos">看青青草原影片</a></div></div>
+      </li>
+      <li id="d5">
+        <div class="time">約 10:15<br>–11:00</div>
+        <div class="card"><h3>回莊園整理、退房<span class="tag t-off">官網</span></h3>
+          <p>官網寫上午 11:00 前退房。想晚一點走可以加購延後退房，按每小時計費，要先問櫃台。</p></div>
+      </li>
+      <li id="d6">
+        <div class="time">中午</div>
+        <div class="card"><h3>午餐或下午茶<span class="tag t-tbc">待確認</span></h3>
+          <p>莊園餐廳的下午茶時段約 11:30 到 16:00，假日是自助式。非住客在餐廳區可以拍照，退房後也能留下來喝茶，是否需要預約請先問櫃台。想吃正餐，可以試農場內的擺夷料理，或下山到埔里吃。</p></div>
+      </li>
+      <li id="d7">
+        <div class="time">14:30 前</div>
+        <div class="card"><h3>下山回程<span class="tag t-est">估計</span></h3>
+          <p>接國道 6 轉國道 3 回板橋約 3 小時多。週日傍晚是回程尖峰，14:30 前出發比較不會塞到晚上。</p></div>
+      </li>
+    </ol>
+    <h3 class="tlh" style="margin-top:8px">備案</h3>
+    <div class="day2">
+      <div class="opt"><h3>想看馬術秀<span class="tag t-tbc">待確認</span></h3>
+        <p>有攻略寫觀山牧區馬術秀約 10:45 和 15:45，跟 11:00 退房衝突。想看的話，先問櫃台能不能延後退房或寄放行李，再決定。</p></div>
+      <div class="opt"><h3>想加碼合歡山<span class="tag t-tbc">待確認</span></h3>
+        <p>冬季合歡山、奇萊山系比清境更有機會降雪，但山路可能管制或結冰，也會拉長回程時間。出發前查公路局最新公告；排進去的話，要取代綿羊秀和午餐前的時間。</p></div>
+    </div>
+  </section>
+
 
   <section id="room">
     <h2>房內與晚間放鬆</h2>
@@ -358,9 +432,9 @@ section{scroll-margin-top:64px}
     <div class="vgroup">
       <h3>清境農場、小瑞士花園、青青草原</h3>
       <div class="vgrid">
-        <a class="vcard" href="https://www.youtube.com/watch?v=B0GvakB7u5k" target="_blank" rel="noopener"><span class="play"><i>▶</i>YouTube</span><strong>清境農場青青草原、天空步道、小瑞士花園｜十八怪餐廳、全台最高便利商店</strong><em>13:30 小瑞士花園 · 15:15 步道</em></a>
+        <a class="vcard" href="https://www.youtube.com/watch?v=B0GvakB7u5k" target="_blank" rel="noopener"><span class="play"><i>▶</i>YouTube</span><strong>清境農場青青草原、天空步道、小瑞士花園｜十八怪餐廳、全台最高便利商店</strong><em>12:45 小瑞士花園 · 15:15 步道</em></a>
         <a class="vcard" href="https://www.youtube.com/watch?v=xG3mOFyX8Ok" target="_blank" rel="noopener"><span class="play"><i>▶</i>YouTube</span><strong>【清境農場還能去嗎】星巴克關了，紙箱王走了。還剩下什麼？小瑞士花園 青青草原</strong><em>近況參考</em></a>
-        <a class="vcard" href="https://www.youtube.com/watch?v=j_jNuw_-jog" target="_blank" rel="noopener"><span class="play"><i>▶</i>YouTube</span><strong>清境農場青青草原／綿羊秀／高空景觀步道／擺夷美食市集／觀山牧區／小瑞士花園</strong><em>14:30 綿羊秀</em></a>
+        <a class="vcard" href="https://www.youtube.com/watch?v=j_jNuw_-jog" target="_blank" rel="noopener"><span class="play"><i>▶</i>YouTube</span><strong>清境農場青青草原／綿羊秀／高空景觀步道／擺夷美食市集／觀山牧區／小瑞士花園</strong><em>12/27 09:30 綿羊秀</em></a>
         <a class="vcard" href="https://www.youtube.com/watch?v=q_q4QHQW7yk" target="_blank" rel="noopener"><span class="play"><i>▶</i>YouTube</span><strong>【ManLife】南投仁愛清境農場兩日遊｜一定要去的 10 個景點</strong><em>景點清單</em></a>
         <a class="vcard" href="https://www.youtube.com/watch?v=VBtJwcYhq0k" target="_blank" rel="noopener"><span class="play"><i>▶</i>YouTube</span><strong>清境農場最療癒放空的一日旅行｜走進台版阿爾卑斯山</strong><em>放慢節奏</em></a>
       </div>
@@ -368,31 +442,7 @@ section{scroll-margin-top:64px}
     <div class="note">關於「近況參考」那支：影片提到星巴克和紙箱王已經收掉。景點與店家有變動，影片內容不一定等於現在的樣子，出發前看 Google 地圖的最新評論。</div>
   </section>
 
-  <section id="day2">
-    <h2>12/27 退房日建議行程</h2>
-    <p class="sub">住 1 晚，12/27（日）退房後回板橋。週日傍晚回程車多，建議下午 14:30 前離開清境。</p>
-    <div class="day2">
-      <div class="opt"><h3>早上<span>早餐 → 莊園花園</span></h3>
-        <ul>
-          <li>早餐（是否含餐依訂房方案<span class="tag t-tbc">待確認</span>）。</li>
-          <li>天亮後兩人在莊園私人花園散步，補拍昨天沒拍到的角度。</li>
-        </ul></div>
-      <div class="opt"><h3>上午<span>清境農場補遊（選一處）</span></h3>
-        <ul>
-          <li>09:30 綿羊秀<span class="tag t-off">官網</span>：12/27 是週日，上午場會演，12/26 下午沒看到的話在這裡補。</li>
-          <li>觀山牧區、馬術表演：南投縣政府拍的導覽影片有介紹。有攻略寫馬術秀約 10:45 和 15:45<span class="tag t-tbc">待確認</span>，退房日只能看上午場。</li>
-        </ul>
-        <p><a href="#videos" style="color:var(--brand);font-weight:500">看景點影片</a></p></div>
-      <div class="opt"><h3>11:00 前<span>退房</span><span class="tag t-off">官網</span></h3>
-        <p>官網寫上午 11:00 前退房。想晚一點走可以加購延後退房，按每小時計費，要先問櫃台。</p></div>
-      <div class="opt"><h3>中午<span>午餐或下午茶</span><span class="tag t-tbc">待確認</span></h3>
-        <p>莊園餐廳的下午茶時段約 11:30 到 16:00，假日是自助式。非住客在餐廳區可以拍照，退房後也能留下來喝茶，是否需要預約請先問櫃台。想吃正餐，可以試農場內的擺夷料理，或下山到埔里吃。</p></div>
-      <div class="opt"><h3>14:30 前<span>下山回程</span><span class="tag t-est">估計</span></h3>
-        <p>接國道 6 轉國道 3 回板橋約 3 小時多。週日傍晚是回程尖峰，14:30 前出發比較不會塞到晚上。</p></div>
-      <div class="opt"><h3>想換口味：加碼合歡山<span class="tag t-tbc">待確認</span></h3>
-        <p>冬季合歡山、奇萊山系比清境更有機會降雪，但山路可能管制或結冰，也會拉長回程時間。出發前查公路局最新公告；排進去的話，就要取代上午的農場補遊。</p></div>
-    </div>
-  </section>
+  
 
   <section id="prep">
     <h2>穿著與出發前確認</h2>
@@ -409,7 +459,7 @@ section{scroll-margin-top:64px}
         <div class="prog" id="prog" aria-live="polite">已完成 0 / 0</div>
         <div class="grp">出發前查</div>
         <ul class="chk">
-          <li><label><input type="checkbox" data-k="c1">上高地訂位時間與人數</label></li>
+          <li><label><input type="checkbox" data-k="c1">上高地 13:30 訂位：人數、遲到保留時間</label></li>
           <li><label><input type="checkbox" data-k="c2">莊園訂房確認信：房型、是否含早晚餐</label></li>
           <li><label><input type="checkbox" data-k="c3">前一晚查中央氣象署清境預報</label></li>
           <li><label><input type="checkbox" data-k="c4">國道 6 號與台 14 甲路況</label></li>
@@ -520,9 +570,40 @@ section{scroll-margin-top:64px}
           }
         }
       });
-    },{rootMargin:'-70px 0px -65% 0px'});
+    },{rootMargin:'-120px 0px -65% 0px'});
     Object.keys(map).forEach(function(id){var el=document.getElementById(id);if(el)io.observe(el)});
   }
+
+  var days=['day1','day2'];
+  var segBtns=[].slice.call(document.querySelectorAll('#seg button'));
+  function dayOf(h){
+    if(h==='day1'||/^t\d+$/.test(h))return 'day1';
+    if(h==='day2'||/^d\d+$/.test(h))return 'day2';
+    return null;
+  }
+  function showDay(id){
+    days.forEach(function(d){var el=document.getElementById(d);if(el)el.hidden=(d!==id)});
+    segBtns.forEach(function(b){b.setAttribute('aria-selected',String(b.getAttribute('data-day')===id))});
+  }
+  segBtns.forEach(function(b){b.addEventListener('click',function(){
+    var id=b.getAttribute('data-day');
+    showDay(id);
+    var el=document.getElementById(id);if(el)el.scrollIntoView();
+    try{history.replaceState(null,'','#'+id)}catch(e){}
+  })});
+  document.addEventListener('click',function(ev){
+    var a=ev.target.closest&&ev.target.closest('a[href^="#"]');
+    if(!a)return;
+    var d=dayOf(a.getAttribute('href').slice(1));
+    if(d)showDay(d);
+  });
+  function fromHash(){
+    var h=location.hash.slice(1),d=dayOf(h);
+    if(d){showDay(d);var el=document.getElementById(h);if(el)el.scrollIntoView()}
+  }
+  showDay(dayOf(location.hash.slice(1))||'day1');
+  window.addEventListener('hashchange',fromHash);
+  if(location.hash)fromHash();
 })();
 </script>
 
