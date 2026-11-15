@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>body{margin:0}</style>
+<title>清境老英格蘭 12/26 行程</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;700&display=swap">
+<style>
+/* Layout: misty-valley hero with ridge silhouettes, then a single reading column; the day is a vertical timeline, videos sit in a card grid. */
+:root{
+  --bg:#edf2f4; --surface:#fbfdfd; --surface-2:#e0e9ed; --fg:#1e2d36; --muted:#4d5f6a; --line:#c6d4da;
+  --brand:#24473f; --on-brand:#f2f7f5; --ember:#a35614; --ember-bg:#fbe8d3;
+  --hero-top:#c4d8e1; --ridge1:#a3bcc6; --ridge2:#74978f; --ridge3:#2b4e45;
+  --font-display:"Noto Serif TC","Songti TC","PMingLiU",serif;
+  --font-body:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#11191e; --surface:#18242b; --surface-2:#203139; --fg:#e6eef1; --muted:#9fb3bd; --line:#2e414a;
+  --brand:#9fd0bd; --on-brand:#10211c; --ember:#f0a25c; --ember-bg:#3a2a1a;
+  --hero-top:#183541; --ridge1:#27434f; --ridge2:#1d3a3a; --ridge3:#0f1f1c; color-scheme:dark;}}
+:root[data-theme="dark"]{
+  --bg:#11191e; --surface:#18242b; --surface-2:#203139; --fg:#e6eef1; --muted:#9fb3bd; --line:#2e414a;
+  --brand:#9fd0bd; --on-brand:#10211c; --ember:#f0a25c; --ember-bg:#3a2a1a;
+  --hero-top:#183541; --ridge1:#27434f; --ridge2:#1d3a3a; --ridge3:#0f1f1c; color-scheme:dark;}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--font-body);line-height:1.75;font-size:16px}
+.page{--fs:1;font-size:calc(1rem * var(--fs))}
+a{color:inherit}
+.wrap{max-width:860px;margin-inline:auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+
+/* hero */
+.hero{background:linear-gradient(180deg,var(--hero-top),var(--bg) 92%);padding-top:36px}
+.hero .wrap{padding-bottom:0}
+.eyebrow{font-size:.8em;letter-spacing:.14em;color:var(--muted);font-weight:500}
+h1{font-family:var(--font-display);font-size:clamp(1.9rem,6.4vw,3rem);line-height:1.25;margin:.35em 0 .4em;text-wrap:balance;color:var(--fg)}
+.lede{max-width:34em;color:var(--muted);margin:0}
+.ridges{display:block;width:100%;height:auto;margin-top:18px}
+:focus-visible{outline:3px solid var(--ember);outline-offset:2px}
+
+/* nav */
+.nav{display:flex;gap:8px;overflow-x:auto;padding-block:14px;scrollbar-width:thin}
+.nav a{flex:none;text-decoration:none;font-size:.9em;padding:6px 14px;border-radius:999px;background:var(--surface);border:1px solid var(--line)}
+.nav a:hover{border-color:var(--brand)}
+
+/* sections */
+section{padding-block:34px 8px}
+h2{font-family:var(--font-display);font-size:1.6em;margin:0 0 6px;text-wrap:balance}
+.sub{color:var(--muted);margin:0 0 20px;font-size:.95em}
+h3{font-size:1.05em;margin:0 0 4px}
+
+.glance{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px}
+.fact{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px 16px;min-width:0}
+.fact b{display:block;font-size:.78em;letter-spacing:.1em;color:var(--muted);font-weight:500}
+.fact span{display:block;font-family:var(--font-display);font-size:1.25em;margin:2px 0}
+.fact small{color:var(--muted);font-size:.82em;line-height:1.5;display:block}
+
+/* tags */
+.tag{display:inline-block;font-size:.72em;line-height:1;padding:4px 8px;border-radius:4px;font-weight:700;vertical-align:middle;margin-left:6px;letter-spacing:.04em}
+.t-booked{background:var(--brand);color:var(--on-brand)}
+.t-off{background:transparent;color:var(--brand);border:1px solid var(--brand)}
+.t-plan{background:var(--surface-2);color:var(--fg)}
+.t-est{background:var(--ember-bg);color:var(--ember)}
+.t-tbc{background:transparent;color:var(--ember);border:1px dashed var(--ember)}
+.legend{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:.82em;color:var(--muted);margin:0 0 22px;align-items:center}
+.legend .tag{margin:0 4px 0 0}
+
+/* timeline */
+.tl{list-style:none;margin:0;padding:0;position:relative}
+.tl::before{content:"";position:absolute;left:calc(5em + 12px);top:8px;bottom:8px;width:2px;background:var(--line)}
+.tl li{display:grid;grid-template-columns:5em 1fr;gap:0 22px;padding-bottom:22px;position:relative}
+.tl .time{font-family:var(--font-display);font-weight:700;color:var(--brand);text-align:right;padding-top:14px;line-height:1.3;font-size:.95em}
+.tl li::after{content:"";position:absolute;left:calc(5em + 7px);top:21px;width:12px;height:12px;border-radius:50%;background:var(--bg);border:3px solid var(--brand)}
+.tl li.hl::after{background:var(--ember);border-color:var(--ember)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 16px 14px;min-width:0;margin-left:14px}
+.card p{margin:4px 0 0;color:var(--muted);font-size:.94em}
+.card .links{display:flex;flex-wrap:wrap;gap:6px 14px;margin-top:8px;font-size:.88em}
+.card .links a{color:var(--brand);font-weight:500}
+.card.lunch{border-color:var(--brand);border-width:2px}
+@media (max-width:520px){
+  .tl::before{left:12px}
+  .tl li{grid-template-columns:1fr;padding-left:34px}
+  .tl li::after{left:6px;top:8px}
+  .tl .time{text-align:left;padding-top:0;margin-bottom:4px}
+  .card{margin-left:0}
+}
+
+/* videos */
+.vgroup{margin-top:26px}
+.vgroup>h3{font-family:var(--font-display);font-size:1.2em;margin-bottom:10px}
+.vgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px}
+.vcard{display:flex;flex-direction:column;gap:10px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px;text-decoration:none;min-width:0}
+.vcard:hover{border-color:var(--brand)}
+.vcard .play{display:flex;align-items:center;gap:8px;font-size:.78em;color:var(--muted);letter-spacing:.06em}
+.vcard .play i{display:inline-grid;place-items:center;width:26px;height:26px;border-radius:50%;background:var(--brand);color:var(--on-brand);font-style:normal;font-size:.7rem;padding-left:2px}
+.vcard strong{font-weight:500;line-height:1.5;font-size:.95em;overflow-wrap:anywhere}
+.vcard em{font-style:normal;font-size:.8em;color:var(--ember);margin-top:auto}
+
+/* day 2 */
+.day2{display:grid;gap:12px}
+.opt{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px 18px}
+.opt h3{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+.opt h3 span{font-size:.8em;color:var(--muted);font-weight:400}
+.opt p,.opt ul{margin:6px 0 0;color:var(--muted);font-size:.94em}
+.opt ul{padding-left:1.2em}
+
+/* lists */
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+.box{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px 18px;min-width:0}
+.box ul{margin:6px 0 0;padding-left:1.2em;color:var(--muted);font-size:.94em}
+.box li{margin-bottom:4px}
+.chk{list-style:none;padding:0!important;margin:6px 0 0}
+.chk label{display:flex;gap:10px;align-items:flex-start;cursor:pointer;font-size:.94em;color:var(--fg);padding:3px 0}
+.chk input{margin-top:.45em;accent-color:var(--brand);width:1.05em;height:1.05em;flex:none}
+
+footer{padding-block:34px 56px;color:var(--muted);font-size:.85em}
+footer ul{padding-left:1.2em;margin:6px 0 0}
+footer a{color:var(--brand)}
+.note{background:var(--ember-bg);color:var(--fg);border-radius:10px;padding:12px 16px;font-size:.9em;margin-top:18px}
+</style>
+
+</head>
+<body>
+<div class="page" id="page">
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">南投仁愛 · 清境 · 2026/12/26（六）</div>
+    <h1>入住老英格蘭莊園<br>抵達日行程</h1>
+    <p class="lede">板橋出發的兩人約會小旅行。12/26 中午在清境上高地吃燒肉，下午逛小瑞士花園和青青草原，傍晚入住莊園。後面附上住客與旅遊創作者的 YouTube 影片，以及 12/27 退房日的建議安排。</p>
+    <svg class="ridges" viewBox="0 0 860 120" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0 78 L70 52 L130 66 L215 28 L290 58 L360 40 L450 72 L540 34 L620 60 L710 30 L790 56 L860 44 L860 120 L0 120Z" fill="var(--ridge1)"/>
+      <path d="M0 96 L90 70 L170 88 L260 60 L350 86 L440 64 L530 90 L640 62 L740 88 L860 70 L860 120 L0 120Z" fill="var(--ridge2)"/>
+      <path d="M0 112 L120 92 L240 108 L380 90 L520 110 L680 94 L860 108 L860 120 L0 120Z" fill="var(--ridge3)"/>
+    </svg>
+  </div>
+</header>
+
+<main class="wrap">
+  <nav class="nav" aria-label="頁內導覽">
+    <a href="#glance">重點</a>
+    <a href="#day1">12/26 時間軸</a>
+    <a href="#videos">影片</a>
+    <a href="#day2">12/27 退房日</a>
+    <a href="#prep">穿著與確認</a>
+    <a href="#sources">資料來源</a>
+  </nav>
+
+  <section id="glance">
+    <h2>當天重點</h2>
+    <p class="sub">12/26 是週六，上山的路和景點都會有人潮，早點出發比較從容。</p>
+    <div class="glance">
+      <div class="fact"><b>午餐</b><span>上高地精品燒肉</span><small>已訂位。位置在清境小瑞士花園對面一帶。</small></div>
+      <div class="fact"><b>入住</b><span>15:30 起</span><small>Hotels.com 列的登記時間是 15:30 到 23:30，以莊園通知為準。</small></div>
+      <div class="fact"><b>農場開放</b><span>08:00–17:00</span><small>清境農場官方介紹的開放時間，下午要抓好離場時間。</small></div>
+      <div class="fact"><b>氣溫</b><span>約 7–10°C</span><small>遇寒流可能接近 0°C，午後常起霧。</small></div>
+    </div>
+  </section>
+
+  <section id="day1">
+    <h2>12/26 抵達日時間軸</h2>
+    <p class="sub">出發地是板橋，上午的時間是估計值，中午之後以你的訂位為準。</p>
+    <div class="legend" aria-label="標籤說明">
+      <span><span class="tag t-booked">已訂</span>你已訂好</span>
+      <span><span class="tag t-off">官網</span>清境農場官網資料</span>
+      <span><span class="tag t-plan">建議</span>我的安排</span>
+      <span><span class="tag t-est">估計</span>依常見路況推算</span>
+      <span><span class="tag t-tbc">待確認</span>出發前再查證</span>
+    </div>
+    <ol class="tl">
+      <li>
+        <div class="time">約 07:00</div>
+        <div class="card"><h3>從板橋出發<span class="tag t-est">估計</span></h3>
+          <p>走國道 3 轉國道 6 到埔里，順利約 3 小時多。週六假期車多，建議不要晚於 07:30。兩人輪流開的話，到埔里換手。</p></div>
+      </li>
+      <li>
+        <div class="time">約 10:00</div>
+        <div class="card"><h3>埔里休息、補給<span class="tag t-plan">建議</span></h3>
+          <p>上山前先上廁所、買水。後半段是彎多的山路，容易暈車的人先吃暈車藥。</p></div>
+      </li>
+      <li class="hl">
+        <div class="time">約 11:30<br>–13:30</div>
+        <div class="card lunch"><h3>午餐｜上高地精品燒肉<span class="tag t-booked">已訂</span></h3>
+          <p>用餐時間以你的訂位為準。開車從清境小瑞士對面的光榮巷進去，沿指示牌走，店家有免費停車場。我沒查到可靠的地址和電話，出發前在 Google 地圖搜尋「上高地精品燒肉」確認。</p></div>
+      </li>
+      <li>
+        <div class="time">約 13:30</div>
+        <div class="card"><h3>小瑞士花園散步<span class="tag t-plan">建議</span></h3>
+          <p>離午餐地點很近，吃飽後慢走消食，不用再開車移動。</p>
+          <div class="links"><a href="#videos">看小瑞士花園影片</a></div></div>
+      </li>
+      <li>
+        <div class="time">約 14:30</div>
+        <div class="card"><h3>青青草原綿羊秀<span class="tag t-off">官網</span></h3>
+          <p>官網公告例假日表演是 09:30 和 14:30，每場約 30 分鐘。12/26 是週六，下午場 14:30 會演；連假和寒暑假的時間同例假日，寒暑假週三公休。遇天候惡劣，現場會公告停演，請提早 10 到 15 分鐘到場卡位。</p>
+          <div class="links"><a href="#videos">看青青草原影片</a></div></div>
+      </li>
+      <li>
+        <div class="time">約 15:15<br>–16:15</div>
+        <div class="card"><h3>草原與高空景觀步道<span class="tag t-plan">建議</span></h3>
+          <p>冬天的清境偏安靜，適合慢慢走、看山和雲。午後容易起霧、風也大，外套帽子備好。農場 17:00 關，最晚 16:30 前離開。</p></div>
+      </li>
+      <li class="hl">
+        <div class="time">約 16:30</div>
+        <div class="card"><h3>入住老英格蘭莊園<span class="tag t-tbc">待確認</span></h3>
+          <p>入住時間 15:30 起。房間有壁爐和音響，盥洗用品是 Hermès。莊園內有旅遊諮詢櫃台，可以請他們幫忙安排行程、寄放行李。停車場在門口，免費。</p>
+          <div class="links"><a href="#videos">看莊園房型開箱</a></div></div>
+      </li>
+      <li>
+        <div class="time">約 17:10</div>
+        <div class="card"><h3>日落前在莊園拍照<span class="tag t-est">估計</span></h3>
+          <p>12 月底日落約 17 點出頭。莊園是哥德式與巴洛克混合的古堡外觀，天還亮時外觀和花園最好拍。</p></div>
+      </li>
+      <li>
+        <div class="time">18:00<br>–20:00</div>
+        <div class="card"><h3>晚餐<span class="tag t-tbc">待確認</span></h3>
+          <p>莊園晚餐時段是 18:00 到 20:00，以住客優先。住客分享提到晚餐和早餐含在住宿裡，實際依你訂的方案，入住時跟櫃台確認用餐時間。</p></div>
+      </li>
+      <li>
+        <div class="time">晚上</div>
+        <div class="card"><h3>音樂欣賞、壁爐、房內放鬆<span class="tag t-tbc">待確認</span></h3>
+          <p>有住客提到晚餐後有音樂欣賞，但我沒查到固定時間表，入住時順便問。其餘時間在房內聽音響、看壁爐。</p></div>
+      </li>
+    </ol>
+  </section>
+
+  <section id="videos">
+    <h2>網紅與創作者影片</h2>
+    <p class="sub">全部是 YouTube 連結，點開會在新分頁播放。我依標題分類，沒有逐支看完，拍攝年份不一，房況與店家狀況以現場為準。</p>
+
+    <div class="vgroup">
+      <h3>老英格蘭莊園：房型與住宿體驗</h3>
+      <div class="vgrid">
+        <a class="vcard" href="https://www.youtube.com/watch?v=gvTbXrdL2oI" target="_blank" rel="noopener"><span class="play"><i>▶</i>YouTube</span><strong>清境老英格蘭莊園浪漫曲套房開箱</strong><em>房型</em></a>
+        <a class="vcard" href="https://www.youtube.com/watch?v=t1pP2BiX1ug" target="_blank" rel="noopener"><span class="play"><i>▶</i>YouTube</span><strong>『南投清境』我終於住進老英格蘭莊園了 頌歌雙套房完整呈現</strong><em>房型</em></a>
+        <a class="vcard" href="https://www.youtube.com/watch?v=TwFVs_iYDrs" target="_blank" rel="noopener"><span class="play"><i>▶</i>YouTube</span><strong>《Lily 飯店開箱》老英格蘭。必住房型推薦</strong><em>房型</em></a>
+        <a class="vcard" href="https://www.youtube.com/watch?v=Oc7gSEGIhq8" target="_blank" rel="noopener"><span class="play"><i>▶</i>YouTube</span><strong>南投清境老英格蘭莊園 幻想曲套房過聖誕</strong><em>聖誕期間 · 房型</em></a>
+        <a class="vcard" href="https://www.youtube.com/watch?v=HZYwwTrvVKo" target="_blank" rel="noopener"><span class="play"><i>▶</i>YouTube</span><strong>【老英格蘭莊園】入住美房開箱！居然有招待紅酒</strong><em>房型 · 住客招待</em></a>
+        <a class="vcard" href="https://www.youtube.com/watch?v=AOhwpBmeXSk" target="_blank" rel="noopener"><span class="play"><i>▶</i>YouTube</span><strong>一秒置身歐洲！！南投清境必住民宿「老英格蘭莊園」絕不後悔！！</strong><em>整體介紹</em></a>
+        <a class="vcard" href="https://www.youtube.com/watch?v=_8J2ucufdgc" target="_blank" rel="noopener"><span class="play"><i>▶</i>YouTube</span><strong>南投清境民宿／老英格蘭莊園／輕旅行／千萬音響／歐洲城堡</strong><em>音響 · 建築</em></a>
+        <a class="vcard" href="https://www.youtube.com/watch?v=o9BvWzLeKbE" target="_blank" rel="noopener"><span class="play"><i>▶</i>YouTube</span><strong>2022 清境跨年 part 1｜去老英格蘭吃下午茶</strong><em>下午茶 · 2022</em></a>
+        <a class="vcard" href="https://www.youtube.com/watch?v=SUMlRrcgswg" target="_blank" rel="noopener"><span class="play"><i>▶</i>YouTube</span><strong>清境莊園深秋美景 老英格蘭莊園 普羅旺斯玫瑰莊園</strong><em>園區景色</em></a>
+      </div>
+    </div>
+
+    <div class="vgroup">
+      <h3>清境農場、小瑞士花園、青青草原</h3>
+      <div class="vgrid">
+        <a class="vcard" href="https://www.youtube.com/watch?v=B0GvakB7u5k" target="_blank" rel="noopener"><span class="play"><i>▶</i>YouTube</span><strong>清境農場青青草原、天空步道、小瑞士花園｜十八怪餐廳、全台最高便利商店</strong><em>13:30 小瑞士花園 · 15:15 步道</em></a>
+        <a class="vcard" href="https://www.youtube.com/watch?v=xG3mOFyX8Ok" target="_blank" rel="noopener"><span class="play"><i>▶</i>YouTube</span><strong>【清境農場還能去嗎】星巴克關了，紙箱王走了。還剩下什麼？小瑞士花園 青青草原</strong><em>近況參考</em></a>
+        <a class="vcard" href="https://www.youtube.com/watch?v=j_jNuw_-jog" target="_blank" rel="noopener"><span class="play"><i>▶</i>YouTube</span><strong>清境農場青青草原／綿羊秀／高空景觀步道／擺夷美食市集／觀山牧區／小瑞士花園</strong><em>14:30 綿羊秀</em></a>
+        <a class="vcard" href="https://www.youtube.com/watch?v=q_q4QHQW7yk" target="_blank" rel="noopener"><span class="play"><i>▶</i>YouTube</span><strong>【ManLife】南投仁愛清境農場兩日遊｜一定要去的 10 個景點</strong><em>景點清單</em></a>
+        <a class="vcard" href="https://www.youtube.com/watch?v=VBtJwcYhq0k" target="_blank" rel="noopener"><span class="play"><i>▶</i>YouTube</span><strong>清境農場最療癒放空的一日旅行｜走進台版阿爾卑斯山</strong><em>放慢節奏</em></a>
+      </div>
+    </div>
+    <div class="note">關於「近況參考」那支：影片提到星巴克和紙箱王已經收掉。景點與店家有變動，影片內容不一定等於現在的樣子，出發前看 Google 地圖的最新評論。</div>
+  </section>
+
+  <section id="day2">
+    <h2>12/27 退房日建議行程</h2>
+    <p class="sub">住 1 晚，12/27（日）退房後回板橋。週日傍晚回程車多，建議下午 14:30 前離開清境。</p>
+    <div class="day2">
+      <div class="opt"><h3>早上<span>早餐 → 莊園花園</span></h3>
+        <ul>
+          <li>早餐（是否含餐依訂房方案<span class="tag t-tbc">待確認</span>）。</li>
+          <li>天亮後兩人在莊園私人花園散步，補拍昨天沒拍到的角度。</li>
+        </ul></div>
+      <div class="opt"><h3>上午<span>清境農場補遊（選一處）</span></h3>
+        <ul>
+          <li>09:30 綿羊秀<span class="tag t-off">官網</span>：12/27 是週日，上午場會演，12/26 下午沒看到的話在這裡補。</li>
+          <li>觀山牧區、馬術表演：南投縣政府拍的導覽影片有介紹。有攻略寫馬術秀約 10:45 和 15:45<span class="tag t-tbc">待確認</span>，退房日只能看上午場。</li>
+        </ul>
+        <p><a href="#videos" style="color:var(--brand);font-weight:500">看景點影片</a></p></div>
+      <div class="opt"><h3>11:30 前<span>退房</span></h3>
+        <p>退房時間 11:30（Hotels.com 資料）。想晚一點走要先問櫃台，視房況而定。</p></div>
+      <div class="opt"><h3>中午<span>午餐或下午茶</span><span class="tag t-tbc">待確認</span></h3>
+        <p>莊園餐廳的下午茶時段約 11:30 到 16:00，假日是自助式。非住客在餐廳區可以拍照，退房後也能留下來喝茶，是否需要預約請先問櫃台。想吃正餐，可以試農場內的擺夷料理，或下山到埔里吃。</p></div>
+      <div class="opt"><h3>14:30 前<span>下山回程</span><span class="tag t-est">估計</span></h3>
+        <p>接國道 6 轉國道 3 回板橋約 3 小時多。週日傍晚是回程尖峰，14:30 前出發比較不會塞到晚上。</p></div>
+      <div class="opt"><h3>想換口味：加碼合歡山<span class="tag t-tbc">待確認</span></h3>
+        <p>冬季合歡山、奇萊山系比清境更有機會降雪，但山路可能管制或結冰，也會拉長回程時間。出發前查公路局最新公告；排進去的話，就要取代上午的農場補遊。</p></div>
+    </div>
+  </section>
+
+  <section id="prep">
+    <h2>穿著與出發前確認</h2>
+    <p class="sub">勾選只在這個頁面暫存，重新整理會清掉。</p>
+    <div class="two">
+      <div class="box"><h3>穿著</h3>
+        <ul>
+          <li>洋蔥式穿法：保暖內層加刷毛或羽絨，外面再加防風外套。</li>
+          <li>帽子、手套、圍巾放隨手包，草原上風大。</li>
+          <li>平地出門時覺得熱，上山就會冷，外套別放在後車廂。</li>
+          <li>愛拍照的話，手機電量和行動電源要滿，低溫會掉電快。</li>
+        </ul></div>
+      <div class="box"><h3>出發前確認</h3>
+        <ul class="chk">
+          <li><label><input type="checkbox">上高地訂位時間與人數</label></li>
+          <li><label><input type="checkbox">莊園入住時間、晚餐時間、音樂欣賞時間</label></li>
+          <li><label><input type="checkbox">12/26 綿羊秀場次（農場公告）</label></li>
+          <li><label><input type="checkbox">前一晚查中央氣象署清境預報</label></li>
+          <li><label><input type="checkbox">國道 6 號與台 14 甲路況</label></li>
+          <li><label><input type="checkbox">暈車藥、外套、行動電源</label></li>
+        </ul></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap" id="sources">
+    <h3>資料來源與限制</h3>
+    <ul>
+      <li>莊園房型：<a href="https://zh.hotels.com/ho488221/lao-ying-ge-lan-zhuang-yuan-ren-ai-tai-wan" target="_blank" rel="noopener">Hotels.com</a>（入住與退房時間也來自這裡）</li>
+      <li>莊園概況與用餐時段：<a href="https://smiletaiwan.cw.com.tw/article/752" target="_blank" rel="noopener">遠見 Smile Taiwan</a>、<a href="https://www.dcard.tw/f/travel/p/235775124" target="_blank" rel="noopener">Dcard 住客分享</a></li>
+      <li>上高地位置與停車：<a href="https://travel.yam.com/article/138668" target="_blank" rel="noopener">Yam 天空傳媒旅遊</a></li>
+      <li>綿羊秀場次：<a href="https://www.cingjing.gov.tw/activity/index.php?index_id=27" target="_blank" rel="noopener">清境農場官網</a>、<a href="https://www.qingjing-farm.com.tw/faq/index.php?index_faq_m_id=4" target="_blank" rel="noopener">官網常見問題</a></li>
+      <li>清境冬季天氣與開放時間：<a href="https://www.taiwan.net.tw/m1.aspx?id=R128&sNo=0001114" target="_blank" rel="noopener">交通部觀光署</a></li>
+    </ul>
+    <p>這份行程整理自網路公開資料，我沒有聯絡莊園或餐廳。凡標「待確認」的項目，請在出發前電話或現場確認。莊園電話：049-2802166（媒體刊載，可能已變更）。</p>
+  </div>
+</footer>
+</div>
+
+
+</body>
+</html>
