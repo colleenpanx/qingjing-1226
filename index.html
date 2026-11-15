@@ -52,8 +52,8 @@ h2{font-family:var(--font-display);font-size:1.6em;margin:0 0 6px;text-wrap:bala
 .sub{color:var(--muted);margin:0 0 20px;font-size:.95em}
 h3{font-size:1.05em;margin:0 0 4px}
 
-.glance{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px}
-.fact{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px 16px;min-width:0}
+.glance{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.fact{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px;min-width:0}
 .fact b{display:block;font-size:.78em;letter-spacing:.1em;color:var(--muted);font-weight:500}
 .fact span{display:block;font-family:var(--font-display);font-size:1.25em;margin:2px 0}
 .fact small{color:var(--muted);font-size:.82em;line-height:1.5;display:block}
@@ -121,6 +121,37 @@ footer{padding-block:34px 56px;color:var(--muted);font-size:.85em}
 footer ul{padding-left:1.2em;margin:6px 0 0}
 footer a{color:var(--brand)}
 .note{background:var(--ember-bg);color:var(--fg);border-radius:10px;padding:12px 16px;font-size:.9em;margin-top:18px}
+
+/* ux pass: sticky nav, overview, persistent checklist, back to top */
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:30}
+.navbar{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);border-bottom:1px solid var(--line);scrollbar-width:none;margin-inline:calc(-1 * max(16px,env(safe-area-inset-left,0px)));padding-inline:max(16px,env(safe-area-inset-left,0px))}
+.navbar::-webkit-scrollbar{display:none}
+.nav a[aria-current="true"]{background:var(--brand);color:var(--on-brand);border-color:var(--brand)}
+section{scroll-margin-top:64px}
+.tl li{scroll-margin-top:72px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.chips span{font-size:.82em;padding:4px 12px;border-radius:999px;background:var(--surface);border:1px solid var(--line);color:var(--muted)}
+.ovh{font-family:var(--font-display);font-size:1.15em;margin:0 0 10px}
+.ov{list-style:none;margin:0 0 26px;padding:0;background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.ov a{display:grid;grid-template-columns:6em 1fr;gap:10px;padding:10px 14px;text-decoration:none;border-top:1px solid var(--line);align-items:baseline}
+.ov li:first-child a{border-top:0}
+.ov a:hover{background:var(--surface-2)}
+.ov .t{font-family:var(--font-display);font-weight:700;color:var(--brand);font-size:.9em}
+.ov .n{min-width:0}
+.ov li.hl .n{font-weight:700}
+.legend-box{margin-bottom:22px}
+.legend-box summary{cursor:pointer;font-size:.85em;color:var(--muted)}
+.legend-box .legend{margin:10px 0 0}
+.tlh{font-family:var(--font-display);font-size:1.15em;margin:0 0 12px}
+.grp{margin:12px 0 0;font-size:.8em;letter-spacing:.08em;color:var(--muted);font-weight:700}
+.prog{font-size:.85em;color:var(--muted);margin:2px 0 6px}
+.btnrow{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.btn{font:inherit;font-size:.88em;color:var(--brand);background:var(--surface);border:1px solid var(--brand);border-radius:6px;padding:5px 12px;cursor:pointer;text-decoration:none;display:inline-block}
+.btn:hover{background:var(--surface-2)}
+.phone{font-family:var(--font-display);font-size:1.1em;user-select:all}
+.top{position:fixed;right:max(16px,env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:25;width:44px;height:44px;border-radius:50%;border:1px solid var(--brand);background:var(--brand);color:var(--on-brand);font-size:1.1rem;cursor:pointer}
+.updated{font-size:.85em;color:var(--muted);margin-top:14px}
 </style>
 
 </head>
@@ -131,6 +162,7 @@ footer a{color:var(--brand)}
     <div class="eyebrow">南投仁愛 · 清境 · 2026/12/26（六）</div>
     <h1>入住老英格蘭莊園<br>抵達日行程</h1>
     <p class="lede">板橋出發的兩人約會小旅行。12/26 中午在清境上高地吃燒肉，下午逛小瑞士花園和青青草原，傍晚入住莊園。後面附上住客與旅遊創作者的 YouTube 影片，以及 12/27 退房日的建議安排。</p>
+    <div class="chips"><span>12/26（六）入住</span><span>12/27（日）退房</span><span>1 晚 · 2 人</span><span>板橋出發</span></div>
     <svg class="ridges" viewBox="0 0 860 120" preserveAspectRatio="none" aria-hidden="true">
       <path d="M0 78 L70 52 L130 66 L215 28 L290 58 L360 40 L450 72 L540 34 L620 60 L710 30 L790 56 L860 44 L860 120 L0 120Z" fill="var(--ridge1)"/>
       <path d="M0 96 L90 70 L170 88 L260 60 L350 86 L440 64 L530 90 L640 62 L740 88 L860 70 L860 120 L0 120Z" fill="var(--ridge2)"/>
@@ -140,7 +172,7 @@ footer a{color:var(--brand)}
 </header>
 
 <main class="wrap">
-  <nav class="nav" aria-label="頁內導覽">
+  <nav class="nav navbar" id="nav" aria-label="頁內導覽">
     <a href="#glance">重點</a>
     <a href="#day1">12/26 時間軸</a>
     <a href="#room">房內放鬆</a>
@@ -155,7 +187,7 @@ footer a{color:var(--brand)}
     <p class="sub">12/26 是週六，上山的路和景點都會有人潮，早點出發比較從容。</p>
     <div class="glance">
       <div class="fact"><b>午餐</b><span>上高地精品燒肉</span><small>已訂位。位置在清境小瑞士花園對面一帶。</small></div>
-      <div class="fact"><b>入住</b><span>15:30 起</span><small>莊園官網：下午 3:30 後入住，隔天 11:00 前退房。</small></div>
+      <div class="fact"><b>住宿（已訂）</b><span>15:30 起入住</span><small>莊園官網：下午 3:30 後入住，隔天 11:00 前退房。</small></div>
       <div class="fact"><b>農場開放</b><span>08:00–17:00</span><small>清境農場官方介紹的開放時間，下午要抓好離場時間。</small></div>
       <div class="fact"><b>晚餐服裝</b><span>Smart Casual</span><small>莊園官網建議。帶一套稍微正式的衣服，山上冷，外面搭得上外套。</small></div>
       <div class="fact"><b>氣溫</b><span>約 7–10°C</span><small>遇寒流可能接近 0°C，午後常起霧。</small></div>
@@ -165,6 +197,21 @@ footer a{color:var(--brand)}
   <section id="day1">
     <h2>12/26 抵達日時間軸</h2>
     <p class="sub">出發地是板橋，上午的時間是估計值，中午之後以你的訂位為準。</p>
+    <h3 class="ovh">今日一覽</h3>
+    <ol class="ov">
+      <li><a href="#t1"><span class="t">約 07:00</span><span class="n">從板橋出發<span class="tag t-est">估計</span></span></a></li>
+      <li><a href="#t2"><span class="t">約 10:00</span><span class="n">埔里休息、補給<span class="tag t-plan">建議</span></span></a></li>
+      <li class="hl"><a href="#t3"><span class="t">11:30–13:30</span><span class="n">午餐｜上高地精品燒肉<span class="tag t-booked">已訂</span></span></a></li>
+      <li><a href="#t4"><span class="t">約 13:30</span><span class="n">小瑞士花園散步<span class="tag t-plan">建議</span></span></a></li>
+      <li><a href="#t5"><span class="t">約 14:30</span><span class="n">青青草原綿羊秀<span class="tag t-off">官網</span></span></a></li>
+      <li><a href="#t6"><span class="t">約 15:15</span><span class="n">草原與高空景觀步道<span class="tag t-plan">建議</span></span></a></li>
+      <li class="hl"><a href="#t7"><span class="t">約 16:30</span><span class="n">入住老英格蘭莊園<span class="tag t-booked">已訂</span></span></a></li>
+      <li><a href="#t8"><span class="t">約 17:10</span><span class="n">日落前在莊園拍照<span class="tag t-est">估計</span></span></a></li>
+      <li><a href="#t9"><span class="t">18:00–20:00</span><span class="n">晚餐<span class="tag t-tbc">待確認</span></span></a></li>
+      <li><a href="#t10"><span class="t">晚上</span><span class="n">音樂欣賞、房內放鬆<span class="tag t-tbc">待確認</span></span></a></li>
+    </ol>
+    <h3 class="tlh">詳細時間軸</h3>
+    <details class="legend-box"><summary>標籤說明</summary>
     <div class="legend" aria-label="標籤說明">
       <span><span class="tag t-booked">已訂</span>你已訂好</span>
       <span><span class="tag t-off">官網</span>清境農場官網資料</span>
@@ -173,56 +220,57 @@ footer a{color:var(--brand)}
       <span><span class="tag t-est">估計</span>依常見路況推算</span>
       <span><span class="tag t-tbc">待確認</span>出發前再查證</span>
     </div>
+    </details>
     <ol class="tl">
-      <li>
+      <li id="t1">
         <div class="time">約 07:00</div>
         <div class="card"><h3>從板橋出發<span class="tag t-est">估計</span></h3>
           <p>走國道 3 轉國道 6 到埔里，順利約 3 小時多。週六假期車多，建議不要晚於 07:30。兩人輪流開的話，到埔里換手。</p></div>
       </li>
-      <li>
+      <li id="t2">
         <div class="time">約 10:00</div>
         <div class="card"><h3>埔里休息、補給<span class="tag t-plan">建議</span></h3>
           <p>上山前先上廁所、買水。後半段是彎多的山路，容易暈車的人先吃暈車藥。</p></div>
       </li>
-      <li class="hl">
+      <li class="hl" id="t3">
         <div class="time">約 11:30<br>–13:30</div>
         <div class="card lunch"><h3>午餐｜上高地精品燒肉<span class="tag t-booked">已訂</span></h3>
           <p>用餐時間以你的訂位為準。開車從清境小瑞士對面的光榮巷進去，沿指示牌走，店家有免費停車場。我沒查到可靠的地址和電話，出發前在 Google 地圖搜尋「上高地精品燒肉」確認。</p></div>
       </li>
-      <li>
+      <li id="t4">
         <div class="time">約 13:30</div>
         <div class="card"><h3>小瑞士花園散步<span class="tag t-plan">建議</span></h3>
           <p>離午餐地點很近，吃飽後慢走消食，不用再開車移動。</p>
           <div class="links"><a href="#videos">看小瑞士花園影片</a></div></div>
       </li>
-      <li>
+      <li id="t5">
         <div class="time">約 14:30</div>
         <div class="card"><h3>青青草原綿羊秀<span class="tag t-off">官網</span></h3>
           <p>官網公告例假日表演是 09:30 和 14:30，每場約 30 分鐘。12/26 是週六，下午場 14:30 會演；連假和寒暑假的時間同例假日，寒暑假週三公休。遇天候惡劣，現場會公告停演，請提早 10 到 15 分鐘到場卡位。</p>
           <div class="links"><a href="#videos">看青青草原影片</a></div></div>
       </li>
-      <li>
+      <li id="t6">
         <div class="time">約 15:15<br>–16:15</div>
         <div class="card"><h3>草原與高空景觀步道<span class="tag t-plan">建議</span></h3>
           <p>冬天的清境偏安靜，適合慢慢走、看山和雲。午後容易起霧、風也大，外套帽子備好。農場 17:00 關，最晚 16:30 前離開。</p></div>
       </li>
-      <li class="hl">
+      <li class="hl" id="t7">
         <div class="time">約 16:30</div>
-        <div class="card"><h3>入住老英格蘭莊園<span class="tag t-tbc">待確認</span></h3>
+        <div class="card"><h3>入住老英格蘭莊園<span class="tag t-booked">已訂</span></h3>
           <p>官網寫下午 3:30 後入住。房間有頂級音響，壁爐能不能用請入住時問。莊園內有旅遊諮詢櫃台，可以請他們幫忙安排行程、寄放行李。住客專屬停車場免費，貴重物品別留在車上。</p>
           <div class="links"><a href="#videos">看莊園房型開箱</a></div></div>
       </li>
-      <li>
+      <li id="t8">
         <div class="time">約 17:10</div>
         <div class="card"><h3>日落前在莊園拍照<span class="tag t-est">估計</span></h3>
           <p>12 月底日落約 17 點出頭。莊園是哥德式與巴洛克混合的古堡外觀，天還亮時外觀和花園最好拍。</p></div>
       </li>
-      <li>
+      <li id="t9">
         <div class="time">18:00<br>–20:00</div>
         <div class="card"><h3>晚餐<span class="tag t-tbc">待確認</span></h3>
           <p>莊園晚餐時段是 18:00 到 20:00，以住客優先。官網寫早餐和主廚晚餐依專案人數提供，實際依你訂的方案。官網建議先預約用餐時間。近一年的住客寫晚餐是八道式西式套餐，入住時會請你先選主菜。服裝見最上面「當天重點」。</p></div>
       </li>
-      <li>
+      <li id="t10">
         <div class="time">晚上</div>
         <div class="card"><h3>音樂欣賞、壁爐、房內放鬆<span class="tag t-tbc">待確認</span></h3>
           <p>官網寫每晚晚餐後，在莎士比亞音樂廳有專人導聆的音響欣賞，並招待一杯飲品。開始時間官網沒寫，入住時問櫃台。其餘時間在房內放鬆，細節見下一節。</p></div>
@@ -348,7 +396,7 @@ footer a{color:var(--brand)}
 
   <section id="prep">
     <h2>穿著與出發前確認</h2>
-    <p class="sub">勾選只在這個頁面暫存，重新整理會清掉。</p>
+    <p class="sub">勾選會記在這台裝置的瀏覽器裡，下次打開還在。</p>
     <div class="two">
       <div class="box"><h3>穿著</h3>
         <ul>
@@ -358,13 +406,42 @@ footer a{color:var(--brand)}
           <li>愛拍照的話，手機電量和行動電源要滿，低溫會掉電快。</li>
         </ul></div>
       <div class="box"><h3>出發前確認</h3>
+        <div class="prog" id="prog" aria-live="polite">已完成 0 / 0</div>
+        <div class="grp">出發前查</div>
         <ul class="chk">
-          <li><label><input type="checkbox">上高地訂位時間與人數</label></li>
-          <li><label><input type="checkbox">莊園入住時間、晚餐時間、音樂欣賞時間</label></li>
-          <li><label><input type="checkbox">12/26 綿羊秀場次（農場公告）</label></li>
-          <li><label><input type="checkbox">前一晚查中央氣象署清境預報</label></li>
-          <li><label><input type="checkbox">國道 6 號與台 14 甲路況</label></li>
-          <li><label><input type="checkbox">暈車藥、外套、行動電源</label></li>
+          <li><label><input type="checkbox" data-k="c1">上高地訂位時間與人數</label></li>
+          <li><label><input type="checkbox" data-k="c2">莊園訂房確認信：房型、是否含早晚餐</label></li>
+          <li><label><input type="checkbox" data-k="c3">前一晚查中央氣象署清境預報</label></li>
+          <li><label><input type="checkbox" data-k="c4">國道 6 號與台 14 甲路況</label></li>
+          <li><label><input type="checkbox" data-k="c5">12/26 綿羊秀公告（農場官網或現場）</label></li>
+        </ul>
+        <div class="grp">入住時問櫃台</div>
+        <ul class="chk">
+          <li><label><input type="checkbox" data-k="q1">晚餐時間，以及主菜怎麼選</label></li>
+          <li><label><input type="checkbox" data-k="q2">音樂欣賞幾點開始、在哪集合</label></li>
+          <li><label><input type="checkbox" data-k="q3">房間有沒有壁爐和暖氣、怎麼開</label></li>
+          <li><label><input type="checkbox" data-k="q4">冰箱和抽屜的東西可不可以自由取用</label></li>
+          <li><label><input type="checkbox" data-k="q5">房內自備酒水、食物的規定</label></li>
+          <li><label><input type="checkbox" data-k="q6">想延後退房的話，問價格與房況</label></li>
+        </ul>
+        <div class="grp">行李</div>
+        <ul class="chk">
+          <li><label><input type="checkbox" data-k="p1">暈車藥、外套、帽子手套</label></li>
+          <li><label><input type="checkbox" data-k="p2">晚餐的 Smart Casual 衣服</label></li>
+          <li><label><input type="checkbox" data-k="p3">牙刷等盥洗用品、行動電源</label></li>
+        </ul></div>
+      <div class="box"><h3>地圖與聯絡</h3>
+        <div class="btnrow">
+          <a class="btn" href="https://www.google.com/maps/search/?api=1&query=%E6%B8%85%E5%A2%83%20%E8%80%81%E8%8B%B1%E6%A0%BC%E8%98%AD%E8%8E%8A%E5%9C%92" target="_blank" rel="noopener">老英格蘭莊園</a>
+          <a class="btn" href="https://www.google.com/maps/search/?api=1&query=%E4%B8%8A%E9%AB%98%E5%9C%B0%E7%B2%BE%E5%93%81%E7%87%92%E8%82%89%20%E6%B8%85%E5%A2%83" target="_blank" rel="noopener">上高地精品燒肉</a>
+          <a class="btn" href="https://www.google.com/maps/search/?api=1&query=%E6%B8%85%E5%A2%83%E5%B0%8F%E7%91%9E%E5%A3%AB%E8%8A%B1%E5%9C%92" target="_blank" rel="noopener">小瑞士花園</a>
+          <a class="btn" href="https://www.google.com/maps/search/?api=1&query=%E6%B8%85%E5%A2%83%E8%BE%B2%E5%A0%B4%20%E9%9D%92%E9%9D%92%E8%8D%89%E5%8E%9F" target="_blank" rel="noopener">青青草原</a>
+        </div>
+        <ul>
+          <li>莊園電話（維吉諾餐廳，媒體刊載）：<span class="phone">049-2802166</span>
+            <button class="btn" type="button" id="copyphone" style="margin-left:6px">複製</button></li>
+          <li>電話可能已變更，以官網為準：<a href="https://theoldengland.com/faq" target="_blank" rel="noopener" style="color:var(--brand)">莊園官網</a></li>
+          <li>農場公告與綿羊秀：<a href="https://www.cingjing.gov.tw/activity/index.php?index_id=27" target="_blank" rel="noopener" style="color:var(--brand)">清境農場官網</a></li>
         </ul></div>
     </div>
   </section>
@@ -383,10 +460,71 @@ footer a{color:var(--brand)}
       <li>綿羊秀場次：<a href="https://www.cingjing.gov.tw/activity/index.php?index_id=27" target="_blank" rel="noopener">清境農場官網</a>、<a href="https://www.qingjing-farm.com.tw/faq/index.php?index_faq_m_id=4" target="_blank" rel="noopener">官網常見問題</a></li>
       <li>清境冬季天氣與開放時間：<a href="https://www.taiwan.net.tw/m1.aspx?id=R128&sNo=0001114" target="_blank" rel="noopener">交通部觀光署</a></li>
     </ul>
-    <p>這份行程整理自網路公開資料，我沒有聯絡莊園或餐廳。凡標「待確認」的項目，請在出發前電話或現場確認。莊園電話：049-2802166（媒體刊載，可能已變更）。</p>
+    <p>這份行程整理自網路公開資料，我沒有聯絡莊園或餐廳。凡標「待確認」的項目，請在出發前電話或現場確認。</p>
+    <p class="updated">最後更新：2026/11/15</p>
   </div>
 </footer>
+<button class="top" id="top" type="button" aria-label="回到頁首" hidden>↑</button>
 </div>
+<script>
+(function(){
+  var KEY='qj1226-checks';
+  var saved={};
+  try{saved=JSON.parse(localStorage.getItem(KEY)||'{}')||{}}catch(e){saved={}}
+  var boxes=[].slice.call(document.querySelectorAll('input[data-k]'));
+  var prog=document.getElementById('prog');
+  function upd(){
+    var n=boxes.filter(function(b){return b.checked}).length;
+    if(prog)prog.textContent='已完成 '+n+' / '+boxes.length;
+  }
+  boxes.forEach(function(b){
+    if(saved[b.getAttribute('data-k')])b.checked=true;
+    b.addEventListener('change',function(){
+      saved[b.getAttribute('data-k')]=b.checked;
+      try{localStorage.setItem(KEY,JSON.stringify(saved))}catch(e){}
+      upd();
+    });
+  });
+  upd();
+
+  var cp=document.getElementById('copyphone');
+  if(cp)cp.addEventListener('click',function(){
+    var ph=document.querySelector('.phone');
+    function fallback(){
+      try{var r=document.createRange();r.selectNodeContents(ph);var s=window.getSelection();s.removeAllRanges();s.addRange(r);cp.textContent='已選取，請手動複製'}catch(e){}
+    }
+    try{
+      navigator.clipboard.writeText('049-2802166').then(function(){cp.textContent='已複製'},fallback);
+    }catch(e){fallback()}
+  });
+
+  var top=document.getElementById('top');
+  if(top){
+    top.addEventListener('click',function(){window.scrollTo(0,0)});
+    var onScroll=function(){top.hidden=window.scrollY<600};
+    window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+  }
+
+  var links=[].slice.call(document.querySelectorAll('#nav a'));
+  if('IntersectionObserver' in window&&links.length){
+    var map={};
+    links.forEach(function(a){map[a.getAttribute('href').slice(1)]=a});
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if(e.isIntersecting){
+          links.forEach(function(a){a.removeAttribute('aria-current')});
+          var a=map[e.target.id];
+          if(a){a.setAttribute('aria-current','true');
+            var nav=document.getElementById('nav');
+            if(nav&&a.offsetLeft<nav.scrollLeft||nav&&a.offsetLeft+a.offsetWidth>nav.scrollLeft+nav.clientWidth){nav.scrollLeft=a.offsetLeft-16}
+          }
+        }
+      });
+    },{rootMargin:'-70px 0px -65% 0px'});
+    Object.keys(map).forEach(function(id){var el=document.getElementById(id);if(el)io.observe(el)});
+  }
+})();
+</script>
 
 
 </body>
